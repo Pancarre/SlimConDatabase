@@ -35,7 +35,7 @@ class AlunniController
     $result = $mysqli_connection->query("INSERT INTO alunni (nome,cognome) VALUES ('$nome','$cognome')");
 
     $response ->getBody()->write("alunno creato con successo");
-    return $response -> withHeader('Content-Type','application/json')->withStatus(200);
+    return $response -> withHeader('Content-Type','application/json')->withStatus(202);
 
   }
 
@@ -51,7 +51,7 @@ class AlunniController
     $result = $mysqli_connection->query("UPDATE alunni SET  nome = '$nome', cognome = '$cognome' WHERE id = '$id' ");
 
     $response ->getBody()->write("alunno aggiornato con successo");
-    return $response -> withHeader('Content-Type','application/json')->withStatus(200);
+    return $response -> withHeader('Content-Type','application/json')->withStatus(204);
 
   }
 
@@ -62,7 +62,7 @@ class AlunniController
     $result = $mysqli_connection->query("DELETE FROM alunni WHERE id = '$id' ");
 
     $response ->getBody()->write("alunno rimosso con successo");
-    return $response -> withHeader('Content-Type','application/json')->withStatus(200);
+    return $response -> withHeader('Content-Type','application/json')->withStatus(204);
 
   }
 
